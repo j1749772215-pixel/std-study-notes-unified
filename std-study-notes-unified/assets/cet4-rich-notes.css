@@ -1,0 +1,86 @@
+/* ==========================================================================
+   CET4 Rich Visual Notes — 覆盖 Blue Topaz 透明白底，全库恢复大胆彩色填充
+   用法：复制到 <你的Vault>/.obsidian/snippets/ 并在 设置 → 外观 → CSS 代码片段 开启
+   ========================================================================== */
+
+.markdown-rendered .callout,
+.markdown-source-view.mod-cm6 .callout {
+  border-radius: 10px !important;
+  border-width: 1px 1px 1px 4.5px !important;
+  border-style: solid !important;
+  padding: 0 !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05) !important;
+  overflow: hidden !important;
+}
+.markdown-rendered .callout-title,
+.markdown-source-view.mod-cm6 .callout-title {
+  padding: 9px 14px !important;
+  font-weight: 700 !important;
+}
+.markdown-rendered .callout-content,
+.markdown-source-view.mod-cm6 .callout-content {
+  padding: 10px 16px 12px 16px !important;
+}
+
+.callout[data-callout="tip"], .callout[data-callout="hint"] {
+  background-color: #ecfdf5 !important; border-color: #a7f3d0 !important; border-left-color: #10b981 !important;
+}
+.callout[data-callout="tip"] .callout-title, .callout[data-callout="hint"] .callout-title {
+  background-color: #d1fae5 !important; color: #065f46 !important;
+}
+
+.callout[data-callout="warning"], .callout[data-callout="caution"], .callout[data-callout="danger"] {
+  background-color: #fff1f2 !important; border-color: #fecdd3 !important; border-left-color: #e63946 !important;
+}
+.callout[data-callout="warning"] .callout-title, .callout[data-callout="caution"] .callout-title, .callout[data-callout="danger"] .callout-title {
+  background-color: #ffe4e6 !important; color: #9f1239 !important;
+}
+
+.callout[data-callout="note"], .callout[data-callout="info"] {
+  background-color: #eff6ff !important; border-color: #bfdbfe !important; border-left-color: #2563eb !important;
+}
+.callout[data-callout="note"] .callout-title, .callout[data-callout="info"] .callout-title {
+  background-color: #dbeafe !important; color: #1e40af !important;
+}
+
+.callout[data-callout="example"] {
+  background-color: #fffbeb !important; border-color: #fde68a !important; border-left-color: #f59e0b !important;
+}
+.callout[data-callout="example"] .callout-title {
+  background-color: #fef3c7 !important; color: #92400e !important;
+}
+
+.callout[data-callout="abstract"], .callout[data-callout="summary"] {
+  background-color: #f5f3ff !important; border-color: #ddd6fe !important; border-left-color: #7c3aed !important;
+}
+.callout[data-callout="abstract"] .callout-title, .callout[data-callout="summary"] .callout-title {
+  background-color: #ede9fe !important; color: #5b21b6 !important;
+}
+
+.callout[data-callout="success"], .callout[data-callout="check"] {
+  background-color: #f0fdf4 !important; border-color: #bbf7d0 !important; border-left-color: #16a34a !important;
+}
+.callout[data-callout="success"] .callout-title, .callout[data-callout="check"] .callout-title {
+  background-color: #dcfce7 !important; color: #166534 !important;
+}
+
+/* 荧光笔高亮 ==重点== */
+.markdown-rendered mark,
+.cm-s-obsidian span.cm-highlight {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 14%, #fef08a 14%, #fde047 92%, rgba(255,255,255,0) 92%) !important;
+  color: #1e293b !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+
+/* 表格彩色表头 + 隔行浅蓝填充 */
+.markdown-rendered table thead th {
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%) !important;
+  color: #0c4a6e !important;
+  font-weight: 700 !important;
+}
+.markdown-rendered table tbody tr:nth-child(even) {
+  background-color: #f0f9ff !important;
+}
