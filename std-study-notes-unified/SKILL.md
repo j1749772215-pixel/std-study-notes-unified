@@ -1,117 +1,131 @@
 ---
 name: std-study-notes-unified
-description: 统一管理视频课/真题精讲（四级写作、四级听力、通用课程）的 Obsidian 高可读彩色笔记规范。适用于 Windows 与 Mac 跨端共同维护，融合「人话可读性第一 + 完成态板书裁切逐笔讲透 + 柔和彩色填充卡片（兼容 Blue Topaz）」三大标准，避免各线程各改各的。
+description: v2 统一版：融合 Windows（四级写作/听力）饱满色彩分层与 Mac（四级翻译）高级轻量微组件的 Obsidian 高可读彩色笔记规范。用于跨端共同维护，兼顾亮暗模式、Blue Topaz 主题与移动端自适应。
 ---
 
-# 课程与真题 Obsidian 高可读彩色笔记统一规范（共同维护版）
+# 课程与真题 Obsidian 高可读彩色笔记统一规范（v2 共同维护版）
 
-> 本 Skill 用于统一 **四级写作、四级听力及后续所有视频课/真题笔记** 的成稿标准。无论在 Windows 还是 Mac、哪个对话线程整理或返工，**一律以此份文档为唯一准绳**。
-
----
-
-## 一、唯一核心原则：优先级绝对不能倒置
-
-整理或修改任何一卷笔记，必须严格按以下顺序把关，**严禁为了刷格式指标而做“换皮不换骨”**：
-
-1. **第一优先 · 人话可读性 + 讲透推演（核心）**
-   - 假设读者**第一次看这份笔记**、没看过原视频，也能顺着文字一次读懂。
-   - **先讲“为什么这么做 / 老师怎么一步步看出来的”，再给结论和口诀**；不甩压缩黑话，不跳步骤，不把关键例题压成干巴巴的一行表格。
-   - 段落自然连贯、说人话，少用“综上所述/由此可见/赋能/抓手”等机械腔。
-2. **第二优先 · 图文咬合 + 干净完成态板书**
-   - **绝不凑数截图**：只在“光靠文字说不清（结构分布、圈画对比、真题错点、听力选项划词）”处配图。
-   - **必抽完成态并裁切干净**：只留板书/课件主体，裁掉黑边、软件菜单栏、系统 Dock、字幕、无关人像和切半邻题。
-   - **每张图下必配「🖍️ 看图拆板书」卡**：把图里的红圈、蓝线、黄标、划掉线逐笔讲清对应什么意思，绝不能只贴图不解释。
-3. **第三优先 · 视觉减噪 + 大胆柔和彩色填充**
-   - **彻底清空非代码反引号 `` `...` `` 与 `<code>`**：Obsidian 亮色主题（如 Blue Topaz）会把行内反引号渲染成刺眼橙色胶囊，破坏阅读节奏。英文词句一律用 *斜体*、**加粗** 或语义色字；年份、题号、时间戳一律纯文本。
-   - **告别白底黑字**：Blue Topaz 会把原生 Callout 背景压成透明白底，因此正文关键模块（导读、看图拆板书、分步拆解、实操技巧、避坑红线、示范演练、我理解）**大胆使用柔和底色填充卡片 + 彩色徽章**，一眼分清层次，同时保持低饱和护眼、不刺眼。
+> 本 Skill 由 **Windows（写作 / 听力）** 与 **Mac（翻译）** 两端共同维护。所有新建与返工卷一律以本规范和共享样式 [`assets/cet4-unified.css`](./assets/cet4-unified.css) 为准。
 
 ---
 
-## 二、统一语义配色表（写作 / 听力 / 通用课程共用）
+## 一、核心优先级（绝不倒置）
 
-| 模块用途 | 推荐底色 | 顶栏 / 徽章色 | 左竖条色 | 适用场景（写作 / 听力示例） |
-|---|---|---|---|---|
-| **卷首导读** | 靛蓝渐层 `#eef2ff → #f0f9ff` | 靛蓝 `#4338ca` | `#4f46e5` | 每卷开头 3 句话讲清本卷解决什么问题 |
-| **看图拆板书** | 清透青蓝 `#ecfeff` | 青蓝 `#cffafe` / `#155e75` | `#0891b2` | 写作板书红蓝圈画 / 听力白纸遮挡与划词解读 |
-| **分步 / 分段条** | 蓝 `#eff6ff` / 紫 `#f5f3ff` / 绿 `#ecfdf5` | 对应深色白字徽章 | 对应主色 | 写作三段分工、5 句话拆解 / 听力三步跟读流程 |
-| **实操技巧 / 验收** | 薄荷翡翠 `#ecfdf5` | 浅绿 `#d1fae5` / `#065f46` | `#10b981` | 考场提分动作、交卷前检查法、听力稳拿分习惯 |
-| **避坑红线 / 反例** | 珊瑚玫瑰 `#fff1f2` | 浅红 `#ffe4e6` / `#9f1239` | `#e63946` | 语法硬伤、跑题陷阱、听力干扰项诱饵 |
-| **示范 / 真题推演** | 暖杏琥珀 `#fffbeb` | 暖黄 `#fef3c7` / `#92400e` | `#f59e0b` | 写作整篇套写替换示范 / 听力真题逐句定位推演 |
-| **重点提醒 / 底线** | 暖橙 `#fff7ed` | 浅橙 `#ffedd5` / `#9a3412` | `#ea580c` | 字数底线、时间红线、第二重点强调 |
-| **我理解 / 思路复盘** | 柔和淡紫 `#f5f3ff` | 浅紫 `#ede9fe` / `#5b21b6` | `#7c3aed` | 读者视角的方法串联与考场落笔顺序 |
-| **老师原话（蓝卡）** | 极浅蓝 `#f9fcff` | 深钴蓝 `#1565c0` 白字 | 边框 `#bbdefb` | 折叠在 `<details>` 内的逐字原话（必带精确时间戳） |
-| **句内荧光重点** | 明黄 `#fef08a` | 深灰字 `#1e293b` | 圆角 `4px` | 每张卡片最多标 1–2 处真正的核心结论 |
+1. **第一优先 · 人话可读性 + 讲透推演**
+   - 假设读者**第一次看、没看过原视频**也能顺着读懂：先讲「为什么这么做 / 老师怎么一步步看出来的」，再给表格、口诀或结论；成段讲解为主，绝不把核心例题压成一行干表。
+   - **每卷能单独读**：用到别卷的概念（如三短三长、根模板、左起跟读），第一次出现时用一两句话讲清，再附「详见卷 N」。
+   - **事实边界严格**：
+     - 凡整理者自己补的逻辑、过渡或反例，**显式标出「整理者补 / 整理者构造的反例」**，不冒充老师原话。
+     - 字幕转写错字（如闽江→岷江、78 年→七八年、记号→句号）**一律以板书为准**，不能当事实写进正文。
+2. **第二优先 · 完成态板书裁切 +「🖍️ 看图拆板书」**
+   - 只在“光看字说不清”处配图，**抽完成态并人工核裁切框**（去黑边、菜单栏、Dock、字幕、无关人像；不用盲目自动裁切以免切掉课件字）。
+   - 每张图下必配**青蓝底「🖍️ 看图拆板书」卡（`.rich-card.board-card`）**，把图里红圈、蓝线、黄标、白纸遮挡与划掉线逐笔讲清。
+3. **第三优先 · 饱满色彩分层 + 高级轻量微组件（疏密有致）**
+   - **大块用饱满彩色填充卡**（保留高辨识度与丰富色彩层次）：卷首导读靛蓝渐层（`.hero-card`）、看图拆板书青蓝卡（`.board-card`）、实操翡翠绿卡（`.card-tip`）、避坑珊瑚红卡（`.card-warn`）、替换/真题示范暖杏琥珀卡（`.card-amber`）、底线暖橙卡（`.card-orange`）、我理解淡紫卡（`.card-purple`），以及蓝/紫/绿多色分步条（`.step-list`）。
+   - **细节用高级轻量微组件**（避免全屏都是整宽大块）：
+     - **左右并排对比卡**（`.cols` + `.col-bad` ✗ / `.col-good` ✓ / `.col-blue` / `.col-orange` / `.col-purple`）
+     - **横向胶囊词链**（`.chain` + `.chip` + `›`）
+     - **圆圈自动编号步骤条**（`.steps` + `.step`）
+     - **双行句子成分对照图**（`.sent` + `.sent-row` + `.seg` + `<small>`）
+     - **紧凑单行提醒块**（`.blk-keng` / `.blk-ji` / `.blk-bu` / `.blk-li` / `.blk-fa` + `.tag`）
+   - **统一走共享 CSS class（`cet4-unified.css`）**：两端 Obsidian 均开启 `cet4-unified.css`（同时覆盖 Blue Topaz 透明 Callout、把行内 `code` 改为柔和灰蓝胶囊、表格彩头斑马纹、亮暗色模式与移动端自适应）。单页独立导出 HTML 时再将 CSS 内嵌兜底。
 
 ---
 
-## 三、标准卡片 HTML 模板（直接复用，兼容 Blue Topaz）
+## 二、两套颜色不打架原则（铁律）
 
-> 所有带填充的卡片均采用**单行紧凑属性 + 纯内联样式**，确保在 Windows/Mac 任意 Obsidian 主题下（即使未开 CSS 代码片段）都能稳定显示柔和彩色底，不退回白底黑字。
+- **句子成分色（7 色）只进对照图 `.sent` 和例句卡**：
+  主语蓝 `.g-subj`、谓语红 `.g-pred`、宾语绿 `.g-obj`、状语紫 `.g-adv`、修饰青 `.g-mod`、连接词橙 `.g-conj`、非谓语棕 `.g-nf`。一个成分整块同色不拆，全卷叫法统一。
+- **正文段落里只用 3 种极简句内标记**：
+  - `.kw` 蓝底粗体 = 核心概念 / 中文难词
+  - `.kw-green` 绿底粗体 = 定下来的英文表达
+  - `==黄底==`（`<mark>`）= 全段最该记住的一句话
+- **错的写法一律用 `.strike-red` 红色删除线或 `.col-bad` ✗ 卡**，绝不单独用红字，防止读者分不清红色是“谓语”还是“错”。
 
-### 3.1 看图拆板书卡（青蓝底，紧跟每张板书图下方）
+---
+
+## 三、常用组件速查（直接复制 class）
+
+### 3.1 卷首导读卡（`.hero-card`）与饱满语义大卡（`.rich-card`）
 
 ```html
-<div style="margin:12px 0 16px 0;background:#ecfeff;border:1px solid #a5f3fc;border-left:4.5px solid #0891b2;border-radius:10px;overflow:hidden">
-<div style="background:#cffafe;padding:7px 14px;font-size:13px;font-weight:700;color:#155e75">🖍️ 看图拆板书 · 标题</div>
-<div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
-<div style="margin-bottom:6px"><span style="background:#ffe4e6;color:#be123c;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12.5px">红圈 / 笔迹 1</span> 逐笔解释含义。</div>
-<div><span style="background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12.5px">蓝线 / 笔迹 2</span> 逐笔解释含义。</div>
+<div class="hero-card">
+  <div class="hero-card-h">📌 卷 N 导读</div>
+  用 2–3 句人话说清本卷解决什么问题，重点词用 <span class="kw">蓝底</span> / <span class="kw-green">绿底</span> 点亮。
 </div>
+
+<div class="rich-card board-card">
+  <div class="rich-card-h">🖍️ 看图拆板书 · 老师每一笔都在标什么</div>
+  <div class="rich-card-b">
+    <div><span class="tag tag-red">红圈</span> 对应含义……</div>
+    <div><span class="tag tag-blue">蓝线</span> 对应含义……</div>
+  </div>
+</div>
+<!-- 其余饱满大卡只需换外层 class：.card-tip（绿） / .card-warn（红） / .card-amber（琥珀） / .card-orange（橙） / .card-purple（紫） -->
+```
+
+### 3.2 左右并排对比卡（`.cols`）与横向词链（`.chain`）
+
+```html
+<div class="cols">
+  <div class="col col-bad"><div class="col-h">✗ 常见错法</div><span class="strike-red">错误写法</span><div class="note">原因说明</div></div>
+  <div class="col col-good"><div class="col-h">✓ 正确写法</div><span class="kw-green">正确写法</span><div class="note">改法要点</div></div>
+</div>
+
+<div class="chain">
+  <span class="chip">① 审题抓信号</span><span class="arr">›</span>
+  <span class="chip chip-2">② 换中心词</span><span class="arr">›</span>
+  <span class="chip chip-3">③ 定 3 个氛围词</span><span class="arr">›</span>
+  <span class="chip chip-end">套进 5 句话</span>
 </div>
 ```
 
-### 3.2 实操技巧卡（翡翠绿底） / 避坑红卡（换为 `#fff1f2` / `#fecdd3` / `#e63946` / `#ffe4e6` / `#9f1239`）
+### 3.3 紧凑单行提示块（`.blk`）与圆圈步骤条（`.steps`）
 
 ```html
-<div style="margin:14px 0 18px 0;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4.5px solid #10b981;border-radius:10px;overflow:hidden">
-<div style="background:#d1fae5;padding:8px 14px;font-size:13.5px;font-weight:700;color:#065f46">✅ 实操技巧标题</div>
-<div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
-正文直接说人话，最核心一句可用 <span style="background:#fef08a;padding:1px 5px;border-radius:4px;font-weight:700">荧光黄高亮</span>。
-</div>
-</div>
-```
+<div class="blk blk-keng"><span class="tag tag-red">坑</span>考场最易踩的坑……</div>
+<div class="blk blk-ji"><span class="tag tag-orange">记</span>必须背牢的一条……</div>
+<div class="blk blk-bu"><span class="tag tag-purple">补</span>整理者补的说明……</div>
 
-### 3.3 多色分步 / 分段条（蓝 → 紫 → 绿）
-
-```html
-<div style="display:flex;flex-direction:column;gap:9px;margin:12px 0 16px 0">
-<div style="padding:11px 15px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4.5px solid #2563eb;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#2563eb;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第一步 / 第一段</span>内容。</div>
-<div style="padding:11px 15px;background:#f5f3ff;border:1px solid #ddd6fe;border-left:4.5px solid #7c3aed;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第二步 / 第二段</span>内容。</div>
-<div style="padding:11px 15px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4.5px solid #10b981;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第三步 / 第三段</span>内容。</div>
+<div class="steps">
+  <div class="step"><b>第一步</b>：说明……</div>
+  <div class="step"><b>第二步</b>：说明……</div>
 </div>
 ```
-
-### 3.4 配套全库 CSS 代码片段
-
-本 Skill 同目录 `assets/cet4-rich-notes.css` 可放入 Obsidian 的 `<Vault>/.obsidian/snippets/` 并启用，让**所有原生 Callout（`> [!tip]` / `[!warning]` / `[!note]` / `[!example]`）、`==高亮==` 和 Markdown 表格表头**也在全库自动获得一致的柔和彩色填充。
 
 ---
 
-## 四、分学科细化约定（共同维护，不各自跑偏）
+## 四、老师原话卡口径（双端统一）
 
-- **四级写作**：
+- 统一折叠在章节末尾 `<details><summary>课堂原话（N 条）</summary>...</details>`，用 `.quote` / `.quote-head` / `.quote-body` 深蓝原话卡。
+- **用途定位**：给 Agent 回查出处用的**记录**。**必须保留精确课次与时间戳**；允许去掉口水词、修正明显字幕错字、合理截短，**以语义忠实、不歪曲原意为准**（已有全逐字验收的旧卷保持原样即可）。
+
+---
+
+## 五、分学科细化约定（写作 / 听力 / 翻译）
+
+- **四级写作（Windows）**：
   - 根模板 / 讲义原貌复原保留清晰色标（蓝字=固定背死、橙底=中心词替换、绿底=氛围词改写）。
   - 真题套写必走「审题信号 → 中心词替换 → 3 个氛围词怎么选 → 完整成文」四步展开。
-- **四级听力**：
+- **四级听力（Windows）**：
   - 核心例题必走「选项预处理划差异词 → 听音时抓到什么信号 → 怎么排除其余三项」完整推演，不能只贴选项表甩答案。
   - 截图里的白纸遮挡位置、白/黄/红划线含义，必须在图下「🖍️ 看图拆板书」青蓝卡里逐笔写清，且颜色必须与截图肉眼核对一致。
-- **老师原话蓝卡（双学科统一）**：
-  - 统一折叠在章节末尾的 `<details><summary>课堂原话（N 条）</summary>...</details>` 中，不打断正文阅读节奏。
-  - 原话必须与逐字稿**逐字核对**，时间戳精确落在对应原话行起点，无断高亮、无遗漏省略号。
+- **四级翻译（Mac）**：
+  - 涉及语序重排或难句拆解时，用 `.sent` 双行句子成分对照图直观画出中文与英文的成分位移；主干/修饰语名称全卷保持一致。
 
 ---
 
-## 五、交付前必须通过的双重验收
+## 六、多代理协同与验收底线
 
-1. **人工可读性验收（首要）**：
-   - 通读正文一遍：零基础不看视频能不能顺着读懂？有没有压缩黑话、跳步推演、白底黑字大段堆砌？
-   - 检查视觉节奏：每一屏内既有清爽白底正文呼吸感，又有彩色填充卡片承担“板书拆解 / 技巧 / 避坑 / 示范”锚点，层次清楚、不花哨。
-2. **脚本硬指标验收（底线）**：
-   - 运行对应项目的 `run_all.py`：标签闭合 `OK`、蓝卡逐字一致、时间戳对齐、`0` 孤儿图 / `0` 断链、`0` 非代码反引号与 `<code>`。
+- **并行控量**：同时最多开 **3 个**写手/审稿子代理，避免一次性打光额度；每章写完立刻拼回主稿并留 checkpoint；大规模改写前保留 `before/` 快照。
+- **双重验收**：
+  1. **首读审稿（扮演零基础学生）**：检查顺读理解度、逻辑断层、整理者推断是否标「整理者补」、字幕错字是否已按板书纠正。
+  2. **硬校验（文件哈希 / `run_all.py`）**：以实际文件内容和脚本通过为准，不轻信口头“已完成”。
 
 ---
 
-## 六、跨端维护约定（Windows ↔ Mac）
+## 七、跨端协作约定（Windows ↔ Mac）
 
-- 本规范独立托管于公开仓库 `std-study-notes-unified`，Windows 与 Mac 均可直接拉取或通过原始链接阅读。
-- 任意线程（写作、听力、其他课程）一旦探索出更好读的卡片形态或排坑经验，**先更新本 `SKILL.md` 并推送，再批量改卷**，避免再次出现各改各的风格割裂。
+- 公共仓库：`https://github.com/j1749772215-pixel/std-study-notes-unified`
+- 成品预览台：`https://j1749772215-pixel.github.io/std-study-notes-unified/`
+- 交流板：Issue `#1`（用 `gh issue view 1 --comments` 读对方进展，用 `gh issue comment 1` 留言，新样板放入 `docs/` 推送即上线预览）。
