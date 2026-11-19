@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>std-study-notes-unified · 成品样板与跨端协作台</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .topbar {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 55%, #0e7490 100%);
+      color: #fff;
+      padding: 28px 20px 24px;
+    }
+    .topbar-inner {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .topbar h1 {
+      margin: 0 0 8px 0;
+      font-size: 24px;
+      letter-spacing: 0.3px;
+    }
+    .topbar p {
+      margin: 0 0 16px 0;
+      color: #e0e7ff;
+      font-size: 14.5px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav-links a {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+    .nav-links a:hover { transform: translateY(-1px); opacity: 0.94; }
+    .btn-primary { background: #fef08a; color: #1e293b; }
+    .btn-ghost { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .container {
+      max-width: 920px;
+      margin: 22px auto 48px;
+      padding: 0 16px;
+    }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .section h2 {
+      margin: 0 0 14px 0;
+      font-size: 19px;
+      color: #1e3a8a;
+      background: linear-gradient(90deg, #dbeafe 0%, #eff6ff 65%, rgba(239,246,255,0) 100%);
+      border-left: 5px solid #2563eb;
+      padding: 7px 14px;
+      border-radius: 0 8px 8px 0;
+    }
+    .section h3 {
+      margin: 18px 0 10px 0;
+      font-size: 16px;
+      color: #5b21b6;
+    }
+    code.cmd {
+      display: block;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      line-height: 1.6;
+      margin: 8px 0 12px;
+    }
+    .meta-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>std-study-notes-unified · 成品样板与跨端协作台</h1>
+      <p>Windows（写作 / 听力）↔ Mac 共同维护的 Obsidian 高可读彩色笔记规范 · 所见即所得成品预览</p>
+      <div class="nav-links">
+        <a class="btn-primary" href="https://github.com/j1749772215-pixel/std-study-notes-unified/issues/1" target="_blank">💬 前往 #1 跨端交流板</a>
+        <a class="btn-ghost" href="https://github.com/j1749772215-pixel/std-study-notes-unified/blob/main/std-study-notes-unified/SKILL.md" target="_blank">📘 阅读统一 SKILL.md</a>
+        <a class="btn-ghost" href="https://github.com/j1749772215-pixel/std-study-notes-unified/blob/main/std-study-notes-unified/assets/cet4-rich-notes.css" target="_blank">🎨 下载全库 CSS 补丁</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 模块 1：我们是怎么做的 -->
+    <section class="section">
+      <h2>一、我们是怎么做出这套效果的（核心做法实录）</h2>
+      <p class="meta-note">供 Mac 端与听力线程直接对照复用，避免重复踩坑。</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0 16px 0">
+        <div style="padding:12px 16px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4.5px solid #2563eb;border-radius:9px;font-size:14.5px;line-height:1.8">
+          <span style="background:#2563eb;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第 1 步 · 可读性排绝对第一</span>
+          先用“零基础第一次看”的视角重写正文：先讲「为什么这么做 / 老师怎么一步步想出来的」，再给结论和口诀；绝不为了刷 <code>div</code> 数量或脚本指标做“换皮不换骨”。
+        </div>
+        <div style="padding:12px 16px;background:#ecfeff;border:1px solid #a5f3fc;border-left:4.5px solid #0891b2;border-radius:9px;font-size:14.5px;line-height:1.8">
+          <span style="background:#0891b2;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第 2 步 · 删凑数图 + 完成态裁切 + 看图拆板书</span>
+          只保留“光靠字说不清”的完成态截图（裁掉黑边、WPS/菜单栏、Dock、字幕、人像），并且每张图下必配「🖍️ 看图拆板书」青蓝卡，把图里每一笔红圈、蓝线、划掉线逐笔讲清。
+        </div>
+        <div style="padding:12px 16px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4.5px solid #10b981;border-radius:9px;font-size:14.5px;line-height:1.8">
+          <span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第 3 步 · 清空橙色胶囊 + 绕开 Blue Topaz 透明白底</span>
+          ① 正文彻底清空非代码反引号与 <code>&lt;code&gt;</code>（消灭刺眼橙色胶囊）；② 因为用户用的 <strong>Blue Topaz</strong> 主题会把原生 Callout 底色扒成纯白，所以一方面用<strong>内联柔和底色卡片</strong>让重点模块开箱即彩色，另一方面配了 <code>cet4-rich-notes.css</code> 补丁覆盖全库原生 Callout 与表格表头。
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块 2：四级写作卷 1 真实成品片段 -->
+    <section class="section">
+      <h2>二、真实成品预览（节选自《四级写作 01 · 评分标准与根模板骨架》）</h2>
+      <p class="meta-note">以下内容直接来自已验收通过的卷 1 真实代码，展示 6 种语义填充色块在实际笔记里的节奏与观感。</p>
+
+      <!-- 导读卡 -->
+      <div style="margin:12px 0 18px 0;padding:14px 18px;background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 100%);border:1px solid #c7d2fe;border-left:5px solid #4f46e5;border-radius:10px;color:#1e293b;line-height:1.8">
+        <div style="font-size:13px;font-weight:700;color:#4338ca;margin-bottom:4px">📌 卷 1 导读（靛蓝渐层底）</div>
+        这一卷先把四级写作最基础的四件事讲明白：<span style="background:#dbeafe;color:#1d4ed8;padding:1px 6px;border-radius:4px;font-weight:600">作文怎么算分</span>、<span style="background:#fce7f3;color:#be185d;padding:1px 6px;border-radius:4px;font-weight:600">四级和六级套模板的界限</span>、<span style="background:#dcfce7;color:#15803d;padding:1px 6px;border-radius:4px;font-weight:600">128 词三段式根模板怎么背怎么换</span>，以及<span style="background:#fef3c7;color:#b45309;padding:1px 6px;border-radius:4px;font-weight:600">考场最易扣分的语法硬伤</span>。
+      </div>
+
+      <!-- 看图拆板书卡 -->
+      <div style="margin:12px 0 16px 0;background:#ecfeff;border:1px solid #a5f3fc;border-left:4.5px solid #0891b2;border-radius:10px;overflow:hidden">
+        <div style="background:#cffafe;padding:7px 14px;font-size:13px;font-weight:700;color:#155e75">🖍️ 看图拆板书 · 老师蓝笔勾出的三段严丝合缝对应关系（青蓝底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          <div style="margin-bottom:6px"><span style="background:#dbeafe;color:#1d4ed8;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12.5px">第一段蓝圈「综述」+ 双横线「学习、交流、社交」</span> 先用一句话点明 translation app 使用普遍，紧接着把后文要讲的三个方向当目录一口气报出来。</div>
+          <div style="margin-bottom:6px"><span style="background:#ede9fe;color:#6d28d9;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12.5px">第二段三条蓝线「学习」「日常交流」「社交或社会发展」</span> 严格照着第一段报出的顺序逐层推进——先讲整体多重要，再落到个人交流好处，最后拔高到社会发展。</div>
+          <div><span style="background:#dcfce7;color:#15803d;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12.5px">第三段蓝线「受益并推而广之」</span> 不抛新观点，用一句话收尾并把全篇字数稳稳拉过 120 词。</div>
+        </div>
+      </div>
+
+      <!-- 三段色条 -->
+      <div style="display:flex;flex-direction:column;gap:9px;margin:12px 0 16px 0">
+        <div style="padding:11px 15px;background:#eff6ff;border:1px solid #bfdbfe;border-left:4.5px solid #2563eb;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#2563eb;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第一段 · 1 句话（约 21 词）</span>先用中心句直接点题，再接一个定语从句，把后文要谈的 <strong>3 个氛围词</strong>像目录一样摆出来。</div>
+        <div style="padding:11px 15px;background:#f5f3ff;border:1px solid #ddd6fe;border-left:4.5px solid #7c3aed;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第二段 · 3 句话（约 83 词）</span>全文主体，严格照着第一段预告的顺序展开，用 <strong>Primarily</strong>（整体有多重要）、<strong>Moreover</strong>（落到个人层面怎么用）、<strong>At last</strong>（往社会层面拔高）三层往下推。</div>
+        <div style="padding:11px 15px;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4.5px solid #10b981;border-radius:9px;font-size:14.5px;line-height:1.8;color:#1e293b"><span style="background:#10b981;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-right:8px">第三段 · 1 句话（约 24 词）</span>不讲新观点，就是用一句「毫无疑问……」把中心词再提一遍、顺手收尾，开头短语 <em style="color:#047857">It admits of no doubt</em> 也可以换成你自己最顺手的表达。</div>
+      </div>
+
+      <!-- 暖橙提醒卡 -->
+      <div style="margin:14px 0;background:#fff7ed;border:1px solid #fed7aa;border-left:4.5px solid #ea580c;border-radius:10px;overflow:hidden">
+        <div style="background:#ffedd5;padding:8px 14px;font-size:13.5px;font-weight:700;color:#9a3412">🔥 字数底线提醒：128 词已经够用，千万别在开头加空话「大帽子」（暖橙底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          四级题面硬性要求 30 分钟内写 <strong>120–180 词</strong>，而这套根模板原样套完就已经有 <span style="background:#fef08a;padding:1px 6px;border-radius:4px;font-weight:700">128 词</span>，就算考场上发挥一般、一字不多加，也已经稳稳跨过 120 词底线。
+        </div>
+      </div>
+
+      <!-- 珊瑚红避坑卡 -->
+      <div style="margin:14px 0;background:#fff1f2;border:1px solid #fecdd3;border-left:4.5px solid #e63946;border-radius:10px;overflow:hidden">
+        <div style="background:#ffe4e6;padding:8px 14px;font-size:13.5px;font-weight:700;color:#9f1239">⚠️ 避坑提示：bringing 千万不能删掉 -ing（珊瑚玫瑰红底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          第 3 句里的 <em>bringing ...</em> 是现在分词作结果状语，因为前面的主句已经有完整的主语和谓语动词了。背的时候千万不能把 <span style="background:#fef08a;padding:1px 5px;border-radius:4px;font-weight:700">-ing</span> 删掉变成原形 <em>bring</em>，不然一句话里会出现两个谓语动词打架。
+        </div>
+      </div>
+
+      <!-- 翡翠绿实操卡 -->
+      <div style="margin:14px 0;background:#ecfdf5;border:1px solid #a7f3d0;border-left:4.5px solid #10b981;border-radius:10px;overflow:hidden">
+        <div style="background:#d1fae5;padding:8px 14px;font-size:13.5px;font-weight:700;color:#065f46">✅ 交卷前 2 分钟的三遍检查法（薄荷翡翠绿底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          <div style="margin-bottom:5px"><span style="background:#059669;color:#fff;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12px;margin-right:6px">第 1 遍 · 只查动词</span>查双谓语（<em>is ... be</em>）、漏 <em>be</em>（<em>will insufficient</em>）或漏 <em>-ed</em>。</div>
+          <div><span style="background:#0284c7;color:#fff;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12px;margin-right:6px">第 2 遍 · 只查介词和 its</span>看到 <strong>to / of / despite</strong> 后绝不接完整句；区分 <em>its</em> 与 <em>it's</em>。</div>
+        </div>
+      </div>
+
+      <!-- 暖杏琥珀示例卡 -->
+      <div style="margin:14px 0;background:#fffbeb;border:1px solid #fde68a;border-left:4.5px solid #f59e0b;border-radius:10px;overflow:hidden">
+        <div style="background:#fef3c7;padding:8px 14px;font-size:13.5px;font-weight:700;color:#92400e">✍️ 手把手替换示范（暖杏琥珀底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          把中心词从 <em>translation app</em> 换成 <span style="background:#ffedd5;color:#c2410c;padding:1px 6px;border-radius:4px;font-weight:700">online library</span>，把三个氛围词换成 <span style="background:#dcfce7;color:#15803d;padding:1px 6px;border-radius:4px;font-weight:700">study / efficiency / remote book resources</span>，整篇 <span style="background:#fef08a;padding:1px 6px;border-radius:4px;font-weight:700">80% 以上的英文骨架根本没动</span>。
+        </div>
+      </div>
+
+      <!-- 淡紫我理解卡 -->
+      <div style="margin:14px 0;background:#f5f3ff;border:1px solid #ddd6fe;border-left:4.5px solid #7c3aed;border-radius:10px;overflow:hidden">
+        <div style="background:#ede9fe;padding:8px 14px;font-size:13.5px;font-weight:700;color:#5b21b6">🧠 我理解：考场套用根模板的三步顺序（淡紫底）</div>
+        <div style="padding:11px 16px;font-size:14.5px;line-height:1.85;color:#1e293b">
+          <span style="background:#7c3aed;color:#fff;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12px;margin-right:6px">Step 1</span>先定第二段三层，再回头填第一段目录 →
+          <span style="background:#2563eb;color:#fff;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12px;margin:0 6px">Step 2</span>批量替换中心词 →
+          <span style="background:#059669;color:#fff;padding:1px 7px;border-radius:4px;font-weight:700;font-size:12px;margin:0 6px">Step 3</span>固定词句一字不改。
+        </div>
+      </div>
+
+      <!-- 原话蓝卡 -->
+      <div style="margin:14px 0 0 0;border:1px solid #bbdefb;border-radius:8px;overflow:hidden">
+        <div style="background:#1565c0;padding:7px 15px;font-size:12px;font-weight:700;color:#fff;letter-spacing:.5px">老师原话　四级 P01　12:47（折叠在 &lt;details&gt; 内的深蓝原话卡）</div>
+        <div style="padding:14px 17px;font-size:14.5px;line-height:1.85;color:#0d3c5e;background:#f9fcff">「其实目的非常单纯，就是让阅卷子的老师，能够在他阅卷的几十秒钟之内快速的读出来，你整个文章的一个架构分布，以及它能够感受到一种很强的逻辑的一个推进性。」</div>
+      </div>
+    </section>
+
+    <!-- 模块 3：Windows & Mac 双向交流协议 -->
+    <section class="section">
+      <h2>三、Windows ↔ Mac Agent 双向交流协议</h2>
+      <p>任何一端的 Agent（写作、听力、Mac 端）都可以直接通过 GitHub CLI 在 <strong>Issue #1</strong> 读对方最新进度、贴自己的成品预览页和改进提案：</p>
+      <code class="cmd"># 1. 查看对方最新留言与规范更新
+gh issue view 1 --repo j1749772215-pixel/std-study-notes-unified --comments
+
+# 2. 汇报自己的新成品 / 提议规范迭代
+gh issue comment 1 --repo j1749772215-pixel/std-study-notes-unified -b "## [Mac/听力端] 同步汇报..."
+
+# 3. 拉取最新 SKILL.md 与成品样板
+git pull origin main</code>
+      <p style="font-size:14px;color:#475569;margin:0">如果另一端（如听力或 Mac）也做出了新的成品样板，只需往 <code>docs/</code> 里新增一个页面（例如 <code>docs/listening-sample.html</code>）并推送，GitHub Pages 会自动发布，直接把链接贴到 Issue #1 就能互相验收成品。</p>
+    </section>
+  </main>
+
+  <footer>
+    Hosted on GitHub Pages · j1749772215-pixel/std-study-notes-unified
+  </footer>
+</body>
+</html>
